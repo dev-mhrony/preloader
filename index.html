@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Preloader  CSS - JavaScript Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="text">
+            MH RONY
+        </div>
+        <div class="title">
+            Please Wait
+        </div>
+        <div class="bar">
+            <div id="fill"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="content">
+        <h1>Hello Jonogon</h1>
+    </div>
+    
+
+
+
+
+
+</body>
+    
+    <script type="text/javascript">
+        var progress = 0;
+        document.onreadystatechange = function()
+        {
+            if(document.readyState == "interactive")
+            {
+                var allElement = $("*");
+                var length = allElement.length;
+                for(var i=0;i<length;i++)
+                {
+                    set_element(allElement[i],length);
+                }
+            }
+        }
+
+        function set_element(element,totalElement)
+        {
+            var percetage = 100 / totalElement;
+            if($(element).length==1)
+            {
+                $("#fill").animate({width:progress+percetage+"%"},1000,function(){
+                    if(document.getElementById("fill").style.width == "100%")
+                    {
+                        $(".main").fadeOut(500);
+                    }
+                });
+                progress = progress + percetage;
+            }
+        }
+    </script>
+
+</html>
